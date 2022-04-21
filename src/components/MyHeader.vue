@@ -1,16 +1,54 @@
 <template>
-  <div class="container-fluid">
-    Day 😀
-    <!-- <input type="text" v-model="query" />
-    <button @click="searchArguments">Cerca</button>
-    <div v-for="item in series" :key="item.id">{{ item.name }}</div>
-    <div v-for="item in films" :key="item.id">{{ item.name }}</div> -->
+  <div class="bg-dark p-5">
+    <div class="container-lg">
+      <div class="row">
+        <div class="col-12 d-flex justify-content-around">
+          <h1 class="text-danger">BoolFlix</h1>
+
+          <ul class="d-flex">
+            <li><a class="mx-2 text-light" href="">Home</a></li>
+            <li><a class="mx-2 text-light" href="serie">Serie Tv</a></li>
+            <li><a class="mx-2 text-light" href="film">Films</a></li>
+            <li><a class="mx-2 text-light" href="">La mia lista</a></li>
+          </ul>
+          <div class="d-flex">
+            <div>
+              <input
+                v-model="searchMovie"
+                @keyup.enter="starSearch"
+                type="text"
+              />
+            </div>
+            <div>
+              <button
+                type="button"
+                @click.prevent="starSearch"
+                class="btn bg-danger bg-gradient mx-3"
+              >
+                Cerca film
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "MyHeader",
+  data() {
+    return {
+      searchMovie: "",
+    };
+  },
+  methods: {
+    starSearch() {
+      this.$emit("searchArguments", this.searchMovie);
+      console.log(this.searchMovie);
+    },
+  },
 };
 </script>
 
