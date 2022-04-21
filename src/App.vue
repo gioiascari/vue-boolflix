@@ -31,20 +31,22 @@ export default {
   methods: {
     //Movies
     getMovie(query) {
-      console.log({ query });
-      const url = this.apiUrl + "movie";
-      const config = {
-        params: {
-          api_key: "20dc8cd40c372b121bcf70b5be101585",
-          query,
-          language: "it-IT",
-        },
-      };
-      axios.get(url, config).then((res) => {
-        console.log({ res });
-        this.movies = res.data.results;
-        console.log(this.movies);
-      });
+      if (query.length > 0) {
+        console.log({ query });
+        const url = this.apiUrl + "movie";
+        const config = {
+          params: {
+            api_key: "20dc8cd40c372b121bcf70b5be101585",
+            query,
+            language: "it-IT",
+          },
+        };
+        axios.get(url, config).then((res) => {
+          console.log({ res });
+          this.movies = res.data.results;
+          console.log(this.movies);
+        });
+      }
     },
   },
 };
