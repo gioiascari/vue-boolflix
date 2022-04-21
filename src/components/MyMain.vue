@@ -12,7 +12,7 @@
             :key="i"
           >
             <img
-              class="cover position-relative"
+              class="cover"
               :src="'https://image.tmdb.org/t/p/w342' + movie.poster_path"
               alt="cover-movie"
             />
@@ -23,6 +23,11 @@
               <h4>{{ movie.original_title }}</h4>
               <p class="card-text">
                 {{ movie.original_language }}
+                <img
+                  class="flag"
+                  :src="'/img/' + movie.original_language + '.png'"
+                  alt="flag"
+                />
               </p>
             </div>
           </div>
@@ -36,7 +41,12 @@
 <script>
 export default {
   name: "MyMain",
-  components: {},
+  data() {
+    return {
+      flags: ["it", "en", "de"],
+    };
+  },
+  methods: {},
   props: {
     movies: Array,
   },
@@ -46,5 +56,9 @@ export default {
 <style>
 .w_20 {
   width: 20rem;
+}
+.flag {
+  height: 20px;
+  width: 20px;
 }
 </style>
