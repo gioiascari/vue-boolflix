@@ -10,7 +10,7 @@
 
 <script>
 import axios from "axios";
-import MyHeader from "./components/myHeader.vue";
+import MyHeader from "./components/MyHeader.vue";
 import MyMain from "@/components/MyMain.vue";
 
 export default {
@@ -24,20 +24,24 @@ export default {
     return {
       apiUrl: "https://api.themoviedb.org/3/search/",
       apiKey: "20dc8cd40c372b121bcf70b5be101585",
-      query: "",
       series: [],
       movies: [],
     };
   },
   methods: {
     //Movies
-    getMovie() {
-      const params = {
-        api_key: this.apiKey,
-        query: this.query,
-        language: "it-IT",
+    getMovie(query) {
+      console.log({ query });
+      const url = this.apiUrl + "movie";
+      const config = {
+        params: {
+          api_key: "20dc8cd40c372b121bcf70b5be101585",
+          query,
+          language: "it-IT",
+        },
       };
-      axios.get(this.apiUrl + "movie", { params: params }).then((res) => {
+      axios.get(url, config).then((res) => {
+        console.log({ res });
         this.movies = res.data.results;
         console.log(this.movies);
       });

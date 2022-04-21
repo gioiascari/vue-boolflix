@@ -15,14 +15,14 @@
             <div>
               <input
                 v-model="searchMovie"
-                @keyup.enter="starSearch"
+                @keyup.enter="startSearch"
                 type="text"
               />
             </div>
             <div>
               <button
                 type="button"
-                @click.prevent="starSearch"
+                @click.prevent="startSearch"
                 class="btn bg-danger bg-gradient mx-3"
               >
                 Cerca film
@@ -44,7 +44,7 @@ export default {
     };
   },
   methods: {
-    starSearch() {
+    startSearch() {
       this.$emit("searchArguments", this.searchMovie);
       console.log(this.searchMovie);
     },
