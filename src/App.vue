@@ -49,6 +49,7 @@ export default {
         //TV Series
         axios.get(this.apiUrl + "tv", config).then((res) => {
           this.series = res.data.results;
+          console.log("SerieTV", this.series);
         });
       }
     },

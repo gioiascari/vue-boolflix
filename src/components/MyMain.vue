@@ -3,7 +3,7 @@
     <div class="container-lg text-light">
       <!-- MOVIES CONTAINER -->
       <div class="row black">
-        <h2 class="text-danger">Movies</h2>
+        <h2 class="text-danger p-4 m-0p-3">Movies</h2>
         <div class="col-12 d-flex flex-wrap justify-content-center">
           <div
             class="card bg-transparent w_20"
@@ -12,20 +12,28 @@
           >
             <img
               class="cover"
+              v-if="movie.poster_path != null"
               :src="'https://image.tmdb.org/t/p/w342' + movie.poster_path"
+              alt="cover-movie"
+            />
+            <img
+              class="cover"
+              v-else
+              src="https://www.altavod.com/assets/images/poster-placeholder.png"
               alt="cover-movie"
             />
             <div class="card-body bg_color">
               <h3 class="card-title text-secondary">
+                Title:
                 {{ movie.title ? movie.title : movie.name }}
               </h3>
-              <h4>{{ movie.original_title }}</h4>
+              <h4>Original title: {{ movie.original_title }}</h4>
               <p class="card-text">
                 {{ movie.original_language }}
 
                 <lang-flag :iso="movie.original_language" />
               </p>
-              <p>{{ movie.vote_average }}</p>
+              <p>Voto: {{ movie.vote_average }}</p>
             </div>
           </div>
         </div>
@@ -34,7 +42,7 @@
 
       <!-- SERIES CONTAINER -->
       <div class="row black">
-        <h2 class="text-danger">TV Series</h2>
+        <h2 class="text-danger p-4 m-0">TV Series</h2>
         <div class="col-12 d-flex flex-wrap justify-content-center">
           <div
             class="card bg-transparent w_20"
@@ -43,8 +51,15 @@
           >
             <img
               class="cover"
+              v-if="serie.poster_path != null"
               :src="'https://image.tmdb.org/t/p/w342' + serie.poster_path"
-              alt="cover-serie"
+              alt="cover-movie"
+            />
+            <img
+              class="cover"
+              v-else
+              src="https://www.altavod.com/assets/images/poster-placeholder.png"
+              alt="cover-movie"
             />
             <div class="card-body bg_color">
               <h3 class="card-title text-secondary">
