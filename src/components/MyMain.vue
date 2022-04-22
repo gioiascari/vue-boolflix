@@ -23,12 +23,10 @@
               <h4>{{ movie.original_title }}</h4>
               <p class="card-text">
                 {{ movie.original_language }}
-                <img
-                  class="flag"
-                  :src="'/img/' + movie.original_language + '.png'"
-                  alt="flag"
-                />
+
+                <lang-flag :iso="movie.original_language" />
               </p>
+              <p>{{ movie.vote_average }}</p>
             </div>
           </div>
           <!--/ MOVIES CONTAINER -->
@@ -41,6 +39,7 @@
 <script>
 export default {
   name: "MyMain",
+
   data() {
     return {
       flags: ["it", "en", "de"],
