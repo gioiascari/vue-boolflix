@@ -23,7 +23,7 @@
               alt="cover-movie"
             />
             <div class="card-body bg_color d_flex">
-              <h3 class="card-title text-secondary">
+              <h3 class="card-title text-secondary fs-5">
                 Title:
                 {{ movie.title ? movie.title : movie.name }}
               </h3>
@@ -44,6 +44,9 @@
                   inactive-color="#ffff00"
                 >
                 </star-rating>
+              </div>
+              <div>
+                <span>Overview : {{ movie.overview }}</span>
               </div>
             </div>
           </div>
@@ -73,7 +76,9 @@
               alt="cover-movie"
             />
             <div class="card-body bg_color d_flex">
-              <h3 class="card-title text-secondary">Title: {{ serie.name }}</h3>
+              <h3 class="card-title text-secondary fs-5">
+                Title: {{ serie.name }}
+              </h3>
               <h4>Original title: {{ serie.original_name }}</h4>
               <p class="card-text">
                 {{ serie.original_language }}
@@ -91,6 +96,9 @@
                   inactive-color="#ffff00"
                 >
                 </star-rating>
+              </div>
+              <div>
+                <span>Overview: {{ serie.overview }}</span>
               </div>
             </div>
           </div>

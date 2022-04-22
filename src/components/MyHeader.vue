@@ -2,31 +2,42 @@
   <div class="bg-dark p-5">
     <div class="container-lg">
       <div class="row">
-        <div class="col-12 d-flex justify-content-around">
+        <div class="col-lg-6 col-md-8 d-flex justify-content-around flex-wrap">
+          <!-- LOGO -->
           <h1 class="text-danger m-0">BoolFlix</h1>
-
-          <ul class="d-flex gx_5 m-0">
+          <!-- /LOGO -->
+          <!-- MENU -->
+          <ul class="d-flex gx_5 m-0 align-items-center">
             <li><a class="mx-2 text-light m-3" href="">Home</a></li>
             <li><a class="mx-2 text-light" href="serie">Serie Tv</a></li>
             <li><a class="mx-2 text-light" href="film">Films</a></li>
             <li><a class="mx-2 text-light" href="">La mia lista</a></li>
           </ul>
-          <div class="d-flex">
-            <div>
+          <!-- / MENU -->
+        </div>
+
+        <div class="col-md-4 col-lg-6 d-flex justify-content-end flex-wrap">
+          <div class="input">
+            <div class="input-group mb-3">
+              <!-- INPUT-BUTTON più logica -->
               <input
+                type="text"
+                class="form-control"
+                placeholder="Search something"
+                aria-label="Recipient's username"
+                aria-describedby="button-addon2"
                 v-model="searchMovie"
                 @keyup.enter="startSearch"
-                type="text"
               />
-            </div>
-            <div>
               <button
-                type="button"
+                class="btn btn-outline-dark btn bg-danger"
                 @click.prevent="startSearch"
-                class="btn bg-danger bg-gradient mx-3"
+                type="button"
+                id="button-addon2"
               >
-                Cerca film
+                Search
               </button>
+              <!-- /INPUT-BUTTON più logica -->
             </div>
           </div>
         </div>
