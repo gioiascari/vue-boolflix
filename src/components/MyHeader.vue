@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-dark p-5">
+  <div class="bg-black p-5">
     <div class="container-lg">
       <div class="row">
         <div class="col-lg-6 col-md-8 d-flex justify-content-around flex-wrap">
