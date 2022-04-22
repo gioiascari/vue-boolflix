@@ -84,12 +84,6 @@
 <script>
 export default {
   name: "MyMain",
-
-  data() {
-    return {
-      flags: ["it", "en", "de"],
-    };
-  },
   methods: {},
   props: {
     movies: Array,
