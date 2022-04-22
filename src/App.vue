@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <!-- HEADER -->
-    <MyHeader @searchArguments="getMovie" />
+    <MyHeader @searchArguments="getAll" />
     <!-- /HEADER -->
 
-    <MyMain :movies="movies" />
+    <MyMain :movies="movies" :series="series" />
   </div>
 </template>
 
@@ -29,10 +29,10 @@ export default {
     };
   },
   methods: {
-    //Movies
-    getMovie(query) {
+    getAll(query) {
       if (query.length > 0) {
         console.log({ query });
+        //Movies
         const url = this.apiUrl + "movie";
         const config = {
           params: {
@@ -45,6 +45,10 @@ export default {
           console.log({ res });
           this.movies = res.data.results;
           console.log(this.movies);
+        });
+        //TV Series
+        axios.get(this.apiUrl + "tv", config).then((res) => {
+          this.series = res.data.results;
         });
       }
     },
