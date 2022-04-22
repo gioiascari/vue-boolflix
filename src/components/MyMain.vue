@@ -11,13 +11,13 @@
             :key="i"
           >
             <img
-              class="cover card-img"
+              class="cover card_img"
               v-if="movie.poster_path != null"
               :src="'https://image.tmdb.org/t/p/w342' + movie.poster_path"
               alt="cover-movie"
             />
             <img
-              class="cover"
+              class="cover card_img"
               v-else
               src="https://www.altavod.com/assets/images/poster-placeholder.png"
               alt="cover-movie"
@@ -64,16 +64,16 @@
             :key="i"
           >
             <img
-              class="cover"
+              class="card_img"
               v-if="serie.poster_path != null"
               :src="'https://image.tmdb.org/t/p/w342' + serie.poster_path"
-              alt="cover-movie"
+              alt="cover-serie"
             />
             <img
-              class="cover"
+              class="cover card_img"
               v-else
               src="https://www.altavod.com/assets/images/poster-placeholder.png"
-              alt="cover-movie"
+              alt="cover-serie"
             />
             <div class="card-body bg_color d_flex">
               <h3 class="card-title text-secondary fs-5">
@@ -95,10 +95,10 @@
                   v-bind:max-rating="Math.round(serie.vote_average / 2)"
                   inactive-color="#ffff00"
                 >
+                  <div>
+                    <span>Overview: {{ serie.overview }}</span>
+                  </div>
                 </star-rating>
-              </div>
-              <div>
-                <span>Overview: {{ serie.overview }}</span>
               </div>
             </div>
           </div>
@@ -120,7 +120,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .w_20 {
   width: 20rem;
 }
@@ -136,5 +136,10 @@ export default {
 .flag {
   height: 20px;
   width: 20px;
+}
+
+.card_img {
+  width: 300px;
+  height: 450px;
 }
 </style>
