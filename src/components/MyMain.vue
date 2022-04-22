@@ -11,7 +11,7 @@
             :key="i"
           >
             <img
-              class="cover"
+              class="cover card-img"
               v-if="movie.poster_path != null"
               :src="'https://image.tmdb.org/t/p/w342' + movie.poster_path"
               alt="cover-movie"
@@ -22,7 +22,7 @@
               src="https://www.altavod.com/assets/images/poster-placeholder.png"
               alt="cover-movie"
             />
-            <div class="card-body bg_color">
+            <div class="card-body bg_color d_flex">
               <h3 class="card-title text-secondary">
                 Title:
                 {{ movie.title ? movie.title : movie.name }}
@@ -33,7 +33,7 @@
 
                 <lang-flag :iso="movie.original_language" />
               </p>
-              <p>Voto: {{ movie.vote_average }}</p>
+              <p>Voto: {{ Math.round(movie.vote_average / 2) }}.</p>
             </div>
           </div>
         </div>
@@ -61,17 +61,15 @@
               src="https://www.altavod.com/assets/images/poster-placeholder.png"
               alt="cover-movie"
             />
-            <div class="card-body bg_color">
-              <h3 class="card-title text-secondary">
-                {{ serie.name }}
-              </h3>
-              <h4>{{ serie.original_title }}</h4>
+            <div class="card-body bg_color d_flex">
+              <h3 class="card-title text-secondary">Title: {{ serie.name }}</h3>
+              <h4>Original title: {{ serie.original_name }}</h4>
               <p class="card-text">
                 {{ serie.original_language }}
 
                 <lang-flag :iso="serie.original_language" />
               </p>
-              <p>{{ serie.vote_average }}</p>
+              <p>Vote: {{ Math.round(serie.vote_average / 2) }}.</p>
             </div>
           </div>
         </div>
@@ -98,6 +96,12 @@ export default {
 }
 .bg_color {
   background-color: #2d2d2d;
+}
+.d_flex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .flag {
   height: 20px;
