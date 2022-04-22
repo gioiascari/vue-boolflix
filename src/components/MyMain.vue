@@ -34,6 +34,17 @@
                 <lang-flag :iso="movie.original_language" />
               </p>
               <p>Voto: {{ Math.round(movie.vote_average / 2) }}.</p>
+              <div class="star_rating">
+                <star-rating
+                  :inline="true"
+                  :star-size="20"
+                  :read-only="true"
+                  :show-rating="false"
+                  v-bind:max-rating="Math.round(movie.vote_average / 2)"
+                  inactive-color="#ffff00"
+                >
+                </star-rating>
+              </div>
             </div>
           </div>
         </div>
@@ -70,6 +81,17 @@
                 <lang-flag :iso="serie.original_language" />
               </p>
               <p>Vote: {{ Math.round(serie.vote_average / 2) }}.</p>
+              <div class="star_rating">
+                <star-rating
+                  :inline="true"
+                  :star-size="20"
+                  :read-only="true"
+                  :show-rating="false"
+                  v-bind:max-rating="Math.round(serie.vote_average / 2)"
+                  inactive-color="#ffff00"
+                >
+                </star-rating>
+              </div>
             </div>
           </div>
         </div>
