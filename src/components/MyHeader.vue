@@ -35,7 +35,7 @@
                 type="button"
                 id="button-addon2"
               >
-                Search
+                <i class="bi bi-search"></i>
               </button>
               <!-- /INPUT-BUTTON più logica -->
             </div>
