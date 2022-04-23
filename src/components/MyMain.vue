@@ -5,7 +5,7 @@
 
       <!-- / HOME CARDS -->
       <!-- MOVIES CONTAINER -->
-      <div class="row black">
+      <div class="row black" v-if="movies.length > 0">
         <h2 class="text-danger p-4 m-0p-3">Movies</h2>
         <div class="col-12 d-flex flex-wrap justify-content-center">
           <div
@@ -63,7 +63,7 @@
       <!--/ MOVIES CONTAINER -->
 
       <!-- SERIES CONTAINER -->
-      <div class="row black">
+      <div class="row black" v-if="series.length > 0">
         <h2 class="text-danger p-4 m-0p-3">TV Series</h2>
         <div class="col-12 d-flex flex-wrap justify-content-center">
           <div

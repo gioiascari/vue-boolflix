@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-black p-5">
+  <div class="bg-black p-3">
     <div class="container-lg">
       <div class="row">
         <div class="col-lg-6 col-md-8 d-flex justify-content-around flex-wrap">
@@ -18,7 +18,7 @@
 
         <div class="col-md-4 col-lg-6 d-flex justify-content-end flex-wrap">
           <div class="input">
-            <div class="input-group mb-3">
+            <div class="input-group m-0">
               <!-- INPUT-BUTTON più logica -->
               <input
                 type="text"
