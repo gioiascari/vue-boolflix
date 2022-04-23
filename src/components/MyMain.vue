@@ -2,7 +2,7 @@
   <div class="bg-dark p-5 text-light">
     <div class="container-lg text-light">
       <!-- HOME CARDS -->
-
+      <HomeCards />
       <!-- / HOME CARDS -->
       <!-- MOVIES CONTAINER -->
       <div class="row black" v-if="movies.length > 0">
@@ -122,12 +122,17 @@
 </template>
 
 <script>
+import HomeCards from "./HomeCards.vue";
 export default {
   name: "MyMain",
+  components: {
+    HomeCards,
+  },
 
   props: {
     movies: Array,
     series: Array,
+    trendingMovies: Array,
   },
 };
 </script>
