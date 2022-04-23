@@ -172,7 +172,7 @@ export default {
     top: 0;
     padding: 30px 15px;
     display: none;
-    overflow: auto;
+    overflow-y: auto;
   }
 }
 
