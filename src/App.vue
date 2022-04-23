@@ -3,7 +3,6 @@
     <!-- HEADER -->
     <MyHeader @searchArguments="getAll" />
     <!-- /HEADER -->
-
     <MyMain :movies="movies" :series="series" />
   </div>
 </template>
@@ -26,8 +25,12 @@ export default {
       apiKey: "20dc8cd40c372b121bcf70b5be101585",
       series: [],
       movies: [],
+      trendingMovie: [],
+      trendingSerie: [],
     };
   },
+  //Effetuo due chiamate per ricevere i programmi in tendenza
+
   methods: {
     getAll(query) {
       if (query.length > 0) {
