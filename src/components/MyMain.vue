@@ -145,6 +145,7 @@
 <script>
 import HomeCards from "./HomeCards.vue";
 import HomeTrailer from "./HomeTrailer.vue";
+// import axios from "axios";
 export default {
   name: "MyMain",
   components: {
@@ -205,6 +206,8 @@ export default {
 .card-movie:hover img,
 .card-serie:hover img {
   opacity: 0.3;
+  // -webkit-animation: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  // animation: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 .card-movie:hover .card-info,
 .card-serie:hover .card-info {

@@ -142,6 +142,11 @@ export default {
     trendingMovies: Array,
     trendingTV: Array,
   },
+  data() {
+    return {
+      urlMovie: "https://api.themoviedb.org/3/movie/",
+    };
+  },
 
   methods: {},
 };

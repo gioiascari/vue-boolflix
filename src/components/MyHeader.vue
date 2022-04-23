@@ -9,9 +9,11 @@
           <!-- MENU -->
           <ul class="d-flex gx_5 m-0 align-items-center">
             <li><a class="mx-2 text-light m-3" href="">Home</a></li>
-            <li><a class="mx-2 text-light" href="serie">Serie Tv</a></li>
+            <li>
+              <a class="mx-2 text-light" href="serie">Serie Tv</a>
+            </li>
             <li><a class="mx-2 text-light" href="film">Films</a></li>
-            <li><a class="mx-2 text-light" href="">La mia lista</a></li>
+            <li><a class="mx-2 text-light" href="lista">La mia lista</a></li>
           </ul>
           <!-- / MENU -->
         </div>
@@ -49,6 +51,7 @@
 <script>
 export default {
   name: "MyHeader",
+  components: {},
   data() {
     return {
       searchMovie: "",
