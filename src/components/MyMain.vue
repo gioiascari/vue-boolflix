@@ -1,45 +1,112 @@
 <template>
   <div class="bg-dark p-5 text-light">
     <div class="container-lg text-light">
-      <!-- HOME CARDS -->
-      <HomeCards />
-      <!-- / HOME CARDS -->
-      <!-- MOVIES CONTAINER -->
-      <div class="row black" v-if="movies.length > 0">
-        <h2 class="text-danger p-4 m-0p-3">Movies</h2>
-        <div class="col-12 d-flex flex-wrap justify-content-center">
-          <div
-            class="card-movie bg-transparent w_20"
-            v-for="(movie, i) in movies"
-            :key="i"
-          >
-            <img
-              class="cover card-image"
-              v-if="movie.poster_path != null"
-              :src="'https://image.tmdb.org/t/p/w342' + movie.poster_path"
-              alt="cover-movie"
-            />
-            <img
-              class="cover card-image"
-              v-else
-              src="https://www.altavod.com/assets/images/poster-placeholder.png"
-              alt="cover-movie"
-            />
-            <div class="card-info bg_color d_flex">
-              <h3 class="card-title text-white fs-5">
-                Title:
-                {{ movie.title ? movie.title : movie.name }}
-              </h3>
-              <h4 class="text-danger">
-                Original title: {{ movie.original_title }}
-              </h4>
-              <p class="card-text">
-                {{ movie.original_language }}
+      <h3 v-if="this.trendingMovies.length != 0 && this.movies.length === 0">
+        Choose for you
+      </h3>
+      <div v-if="this.movies.length === 0">
+        <HomeCards
+          :trendingMovies="trendingMovies"
+          :trendingTV="trendingTV"
+          type="movie"
+        />
+      </div>
+      <div v-else>
+        <!-- HOME CARDS -->
 
-                <lang-flag :iso="movie.original_language" />
-              </p>
+        <!-- / HOME CARDS -->
+        <!-- MOVIES CONTAINER -->
+        <div class="row black" v-if="this.movies.length > 0">
+          <h2 class="text-danger p-4 m-0p-3">Movies</h2>
+          <div class="col-12 d-flex flex-wrap justify-content-center">
+            <div
+              class="card-movie bg-transparent w_20"
+              v-for="(movie, i) in movies"
+              :key="i"
+            >
+              <img
+                class="cover card-image"
+                v-if="movie.poster_path != null"
+                :src="'https://image.tmdb.org/t/p/w342' + movie.poster_path"
+                alt="cover-movie"
+              />
+              <img
+                class="cover card-image"
+                v-else
+                src="https://www.altavod.com/assets/images/poster-placeholder.png"
+                alt="cover-movie"
+              />
+              <div class="card-info bg_color d_flex">
+                <h3 class="card-title text-white fs-5">
+                  Title:
+                  {{ movie.title ? movie.title : movie.name }}
+                </h3>
+                <h4 class="text-danger">
+                  Original title: {{ movie.original_title }}
+                </h4>
+                <p class="card-text">
+                  {{ movie.original_language }}
 
-              <div class="star_rating">
+                  <lang-flag :iso="movie.original_language" />
+                </p>
+
+                <div class="star_rating">
+                  <p>
+                    Voto:
+                    <star-rating
+                      :inline="true"
+                      :star-size="20"
+                      :read-only="true"
+                      :show-rating="false"
+                      v-bind:max-rating="Math.round(movie.vote_average / 2)"
+                      inactive-color="#ffff00"
+                    >
+                    </star-rating>
+                  </p>
+                </div>
+                <div>
+                  <span>Overview : {{ movie.overview }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--/ MOVIES CONTAINER -->
+
+        <!-- SERIES CONTAINER -->
+        <div class="row black" v-if="series.length > 0">
+          <h2 class="text-danger p-4 m-0p-3">TV Series</h2>
+          <div class="col-12 d-flex flex-wrap justify-content-center">
+            <div
+              class="card-serie bg-transparent w_20"
+              v-for="(serie, i) in series"
+              :key="i"
+            >
+              <img
+                class="cover card-image"
+                v-if="serie.poster_path != null"
+                :src="'https://image.tmdb.org/t/p/w342' + serie.poster_path"
+                alt="cover-serie"
+              />
+              <img
+                class="cover"
+                v-else
+                src="https://www.altavod.com/assets/images/poster-placeholder.png"
+                alt="cover-serie"
+              />
+              <div class="card-info d_flex">
+                <h3 class="card-title text-light fs-5">
+                  Title:
+                  {{ serie.name }}
+                </h3>
+                <h4 class="text-danger">
+                  Original title: {{ serie.original_name }}
+                </h4>
+                <p class="card-text">
+                  {{ serie.original_language }}
+
+                  <lang-flag :iso="serie.original_language" />
+                </p>
                 <p>
                   Voto:
                   <star-rating
@@ -47,70 +114,15 @@
                     :star-size="20"
                     :read-only="true"
                     :show-rating="false"
-                    v-bind:max-rating="Math.round(movie.vote_average / 2)"
+                    v-bind:max-rating="Math.round(serie.vote_average / 2)"
                     inactive-color="#ffff00"
                   >
                   </star-rating>
                 </p>
-              </div>
-              <div>
-                <span>Overview : {{ movie.overview }}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--/ MOVIES CONTAINER -->
 
-      <!-- SERIES CONTAINER -->
-      <div class="row black" v-if="series.length > 0">
-        <h2 class="text-danger p-4 m-0p-3">TV Series</h2>
-        <div class="col-12 d-flex flex-wrap justify-content-center">
-          <div
-            class="card-serie bg-transparent w_20"
-            v-for="(serie, i) in series"
-            :key="i"
-          >
-            <img
-              class="cover card-image"
-              v-if="serie.poster_path != null"
-              :src="'https://image.tmdb.org/t/p/w342' + serie.poster_path"
-              alt="cover-serie"
-            />
-            <img
-              class="cover"
-              v-else
-              src="https://www.altavod.com/assets/images/poster-placeholder.png"
-              alt="cover-serie"
-            />
-            <div class="card-info d_flex">
-              <h3 class="card-title text-light fs-5">
-                Title:
-                {{ serie.name }}
-              </h3>
-              <h4 class="text-danger">
-                Original title: {{ serie.original_name }}
-              </h4>
-              <p class="card-text">
-                {{ serie.original_language }}
-
-                <lang-flag :iso="serie.original_language" />
-              </p>
-              <p>
-                Voto:
-                <star-rating
-                  :inline="true"
-                  :star-size="20"
-                  :read-only="true"
-                  :show-rating="false"
-                  v-bind:max-rating="Math.round(serie.vote_average / 2)"
-                  inactive-color="#ffff00"
-                >
-                </star-rating>
-              </p>
-
-              <div>
-                <span>Overview : {{ serie.overview }}</span>
+                <div>
+                  <span>Overview : {{ serie.overview }}</span>
+                </div>
               </div>
             </div>
           </div>
@@ -133,6 +145,7 @@ export default {
     movies: Array,
     series: Array,
     trendingMovies: Array,
+    trendingTV: Array,
   },
 };
 </script>

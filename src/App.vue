@@ -7,6 +7,7 @@
       :movies="movies"
       :series="series"
       :trendingMovies="trendingMovies"
+      :trendingTV="trendingTV"
     />
   </div>
 </template>
@@ -30,6 +31,7 @@ export default {
       apiTrendingMovie:
         "https://api.themoviedb.org/3/trending/movie/week?api_key=",
       apiTrendingTV: "https://api.themoviedb.org/3/trending/tv/week?api_key=",
+      apiVideo: "https://api.themoviedb.org/3/movie/{movie_id}/videos?api_key=",
       series: [],
       movies: [],
       trendingMovies: [],
@@ -41,6 +43,7 @@ export default {
     axios
       .all([
         axios.get(this.apiTrendingMovie + this.apiKey),
+
         axios.get(this.apiTrendingTV + this.apiKey),
       ])
       .then(
