@@ -27,7 +27,7 @@
         <!-- MOVIES CONTAINER -->
         <div class="row black" v-if="this.movies.length > 0">
           <h2 class="text-danger p-4 m-0p-3">Movies</h2>
-          <div class="col-12 d-flex flex-wrap justify-content-center">
+          <div class="col-12 d-flex flex-wrap justify-content-between">
             <div
               class="card-movie bg-transparent w_20"
               v-for="(movie, i) in movies"
@@ -85,7 +85,7 @@
         <!-- SERIES CONTAINER -->
         <div class="row black" v-if="series.length > 0">
           <h2 class="text-danger p-4 m-0p-3">TV Series</h2>
-          <div class="col-12 d-flex flex-wrap justify-content-center">
+          <div class="col-12 d-flex flex-wrap justify-content-between">
             <div
               class="card-serie bg-transparent w_20"
               v-for="(serie, i) in series"
