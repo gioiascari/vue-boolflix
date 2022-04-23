@@ -3,7 +3,7 @@
     <!-- Trending movies -->
     <div class="row">
       <h2 class="text-danger p-4 m-0 p-3">Movies</h2>
-      <div class="col-12 d-flex flex-wrap justify-content-center">
+      <div class="col-12 d-flex flex-wrap justify-content-between">
         <div
           class="card-movie bg-transparent w_20"
           v-for="(item, i) in trendingMovies"
@@ -60,7 +60,7 @@
     <!-- Trending Series -->
     <div class="row">
       <h2 class="text-danger p-4 m-0 p-3">TV Series</h2>
-      <div class="col-12 d-flex flex-wrap justify-content-center">
+      <div class="col-12 d-flex flex-wrap justify-content-between">
         <div
           class="card-movie bg-transparent w_20"
           v-for="(item, i) in trendingTV"
@@ -108,6 +108,9 @@
             </div>
             <div>
               <span>Overview : {{ item.overview }}</span>
+            </div>
+            <div>
+              <span>Actors : {{ item.overview }}</span>
             </div>
           </div>
         </div>

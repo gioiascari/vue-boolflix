@@ -31,11 +31,12 @@ export default {
       apiTrendingMovie:
         "https://api.themoviedb.org/3/trending/movie/week?api_key=",
       apiTrendingTV: "https://api.themoviedb.org/3/trending/tv/week?api_key=",
-      apiVideo: "https://api.themoviedb.org/3/movie/{movie_id}/videos?api_key=",
       series: [],
       movies: [],
       trendingMovies: [],
       trendingTV: [],
+      movieCast: [],
+      tvCast: [],
     };
   },
   created() {
@@ -58,28 +59,11 @@ export default {
       });
   },
   methods: {
-    // getTrending(text) {
-    //   if (text.length <= 0) {
-    //     ///Effetuo due chiamate per ricevere i programmi in tendenza
-    //     const config = {
-    //       params: {
-    //         api_key: "20dc8cd40c372b121bcf70b5be101585",
-    //         text,
-    //         language: "it-IT",
-    //       },
-    //     };
-    //     axios.get(this.apiTrendingMovie, config).then((res) => {
-    //       console.log("Trending", { res });
-    //       this.trendingMovies = res.data.results;
-    //       console.log("Trending Movies", this.trendingMovies);
-    //     });
-    //   }
-    // },
     getAll(query) {
       if (query.length > 0) {
         console.log({ query });
         //Movies
-        const url = this.apiUrl + "movie";
+
         const config = {
           params: {
             api_key: "20dc8cd40c372b121bcf70b5be101585",
@@ -87,7 +71,7 @@ export default {
             language: "it-IT",
           },
         };
-        axios.get(url, config).then((res) => {
+        axios.get(this.apiUrl + "movie", config).then((res) => {
           console.log({ res });
           this.movies = res.data.results;
           console.log("Movies", this.movies);

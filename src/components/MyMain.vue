@@ -1,9 +1,18 @@
 <template>
-  <div class="bg-dark p-5 text-light">
-    <div class="container-lg text-light">
-      <h3 v-if="this.trendingMovies.length != 0 && this.movies.length === 0">
-        Choose for you
-      </h3>
+  <div class="bg-dark text-light">
+    <div class="container">
+      <div
+        class="row"
+        v-if="this.trendingMovies.length != 0 && this.movies.length === 0"
+      >
+        <h3>Choose for you</h3>
+        <HomeTrailer />
+      </div>
+    </div>
+    <div class="container text-light">
+      <h3
+        v-if="this.trendingMovies.length != 0 && this.movies.length === 0"
+      ></h3>
       <div v-if="this.movies.length === 0">
         <HomeCards
           :trendingMovies="trendingMovies"
@@ -135,10 +144,12 @@
 
 <script>
 import HomeCards from "./HomeCards.vue";
+import HomeTrailer from "./HomeTrailer.vue";
 export default {
   name: "MyMain",
   components: {
     HomeCards,
+    HomeTrailer,
   },
 
   props: {
@@ -146,6 +157,7 @@ export default {
     series: Array,
     trendingMovies: Array,
     trendingTV: Array,
+    id: Array,
   },
 };
 </script>
