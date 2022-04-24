@@ -4,7 +4,10 @@
       <div class="row">
         <div class="col-lg-6 col-md-8 d-flex justify-content-around flex-wrap">
           <!-- LOGO -->
-          <h1 class="text-danger m-0">BoolFlix</h1>
+          <!-- <h1 class="text-danger m-0">BoolFlix</h1> -->
+          <div class="logo-boolflix m-0 w_30">
+            <img alt="Vue logo" src="../assets/boolflix.png" class="w-100" />
+          </div>
           <!-- /LOGO -->
           <!-- MENU -->
           <ul class="d-flex gx_5 m-0 align-items-center">
@@ -83,5 +86,8 @@ ul {
 }
 .gx_5 {
   column-gap: 20px;
+}
+.w_30 {
+  width: 30%;
 }
 </style>

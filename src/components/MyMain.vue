@@ -5,7 +5,7 @@
         class="row"
         v-if="this.trendingMovies.length != 0 && this.movies.length === 0"
       >
-        <h3>Choose for you</h3>
+        <h3 class="p-4">Choose for you</h3>
         <HomeTrailer />
       </div>
     </div>
@@ -59,9 +59,9 @@
                   <lang-flag :iso="movie.original_language" />
                 </p>
 
-                <div class="star_rating">
+                <div class="star_rating d-flex align-items-center m-0">
                   <p>
-                    Voto:
+                    Vote:
                     <star-rating
                       :inline="true"
                       :star-size="20"
