@@ -15,6 +15,7 @@
           <div class="text-trailer d-flex">
             <div class="text-plot w-75">
               <h2>Dark</h2>
+
               <p>
                 Children start vanishing from the German town of Winden,[13]
                 bringing to light the fractured relationships, double lives, and
@@ -32,6 +33,11 @@
 <script>
 export default {
   name: "HomeTrailer",
+  data() {
+    return {
+      hover: false,
+    };
+  },
 };
 </script>
 
@@ -39,6 +45,8 @@ export default {
 .trailer-video {
   position: relative;
   .text-trailer {
+    transition: 1s;
+    opacity: 0;
     align-items: flex-start; //utilizzo anche il display flex per centrare il testo a metà del contenuto
     flex-direction: column;
     justify-content: center;
@@ -52,6 +60,9 @@ export default {
       rgba(255, 0, 0, 0),
       rgb(0, 0, 0)
     );
+  }
+  .text-trailer:hover {
+    opacity: 1;
   }
 }
 
